@@ -23,7 +23,7 @@ const CompetencyWorkbook = () => {
   const [answers, setAnswers] = useState({});
 
   const handleLogin = () => {
-    if (password === 'career2025') {
+    if (password === 'Cejh2025$') {
       setIsAuthenticated(true);
       setShowError(false);
     } else {
