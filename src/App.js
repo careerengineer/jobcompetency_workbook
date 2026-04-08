@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Check, Download, Lock, HelpCircle, Eye, Edit3 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Check, Download, HelpCircle, Eye, Edit3 } from 'lucide-react';
 
 const CompetencyWorkbook = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [password, setPassword] = useState('');
-  const [showError, setShowError] = useState(false);
   const [showIntro, setShowIntro] = useState(true);
   const [currentPhase, setCurrentPhase] = useState('round1');
   const [currentStep, setCurrentStep] = useState(0);
@@ -21,15 +18,6 @@ const CompetencyWorkbook = () => {
   });
 
   const [answers, setAnswers] = useState({});
-
-  const handleLogin = () => {
-    if (password === 'Cejh2025$') {
-      setIsAuthenticated(true);
-      setShowError(false);
-    } else {
-      setShowError(true);
-    }
-  };
 
   const round1Steps = [
     { id: 0, title: '기본 정보 입력', subtitle: '지원할 산업, 직무, 회사를 입력하세요' },
@@ -697,53 +685,6 @@ ${finalText.split('\n\n').map(para => `<p>${para.replace(/\n/g, '<br>')}</p>`).j
     : currentPhase === 'round2'
     ? 33 + ((currentStep + 1) / selectedSteps.length) * 33
     : 66 + ((currentStep + 1) / round3Questions.length) * 34;
-
-  // ── 인증 화면 ──────────────────────────────────────────────────────────────
-  if (!isAuthenticated) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center p-8">
-        <div className="bg-white rounded-lg shadow-2xl p-8 max-w-md w-full">
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-              <Lock className="w-8 h-8 text-blue-600" />
-            </div>
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">비공개 페이지</h1>
-            <p className="text-gray-600">CareerEngineer의 직무확보역량 작성 워크북</p>
-          </div>
-          <div className="space-y-4">
-            <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">비밀번호를 입력하세요</label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleLogin()}
-                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
-                placeholder="비밀번호 입력"
-                autoFocus
-              />
-            </div>
-            {showError && (
-              <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
-                비밀번호가 올바르지 않습니다.
-              </div>
-            )}
-            <button
-              onClick={handleLogin}
-              className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold"
-            >
-              접속하기
-            </button>
-          </div>
-          <div className="mt-6 pt-4 border-t border-gray-200 text-center">
-            <p className="text-xs text-gray-500">
-              © 2026 CareerEngineer All Rights Reserved.
-            </p>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   // ── 인트로 화면 ────────────────────────────────────────────────────────────
   if (showIntro) {
