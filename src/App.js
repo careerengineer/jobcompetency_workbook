@@ -718,7 +718,7 @@ const CompetencyWorkbook = () => {
     container: { maxWidth: 900, margin: '0 auto' },
     card: { background: COLORS.bg, borderRadius: RADIUS.md, padding: SPACING.lg, border: `1px solid ${COLORS.border}`, marginBottom: SPACING.md },
     // 메인 화면 상단 헤더 (PART 7-6: 상단 고정)
-    headerSticky: { background: COLORS.bgAlt, borderRadius: RADIUS.md, padding: SPACING.md, border: `1px solid ${COLORS.border}`, marginBottom: SPACING.md, position: 'sticky', top: SPACING.md, zIndex: 10, boxShadow: '0 2px 8px rgba(11, 23, 51, 0.12)' },
+    headerSticky: { background: COLORS.bgAlt, borderRadius: RADIUS.md, padding: SPACING.md, border: `1px solid ${COLORS.border}`, marginBottom: SPACING.md, position: 'sticky', top: SPACING.md, zIndex: 10, boxShadow: '0 2px 8px rgba(14, 39, 80, 0.12)' },
     cardLarge: { background: COLORS.bg, borderRadius: RADIUS.md, padding: SPACING.xl, border: `1px solid ${COLORS.border}`, marginBottom: SPACING.md },
     h1: { fontSize: FONT.size.h1, fontWeight: FONT.weight.bold, color: COLORS.accent, margin: 0, lineHeight: FONT.lineHeight.tight },
     h1Center: { fontSize: FONT.size.h1, fontWeight: FONT.weight.bold, color: COLORS.accent, margin: `0 0 ${SPACING.md}px`, lineHeight: FONT.lineHeight.tight, textAlign: 'center' },
@@ -756,8 +756,8 @@ const CompetencyWorkbook = () => {
   const FirstVisitModal = () => {
     if (!showHelp) return null;
     return (
-      <div style={{ position: 'fixed', inset: 0, background: 'rgba(11, 23, 51, 0.4)', zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: SPACING.md }} onClick={() => setShowHelp(false)}>
-        <div style={{ background: COLORS.bg, borderRadius: RADIUS.md, padding: SPACING.xl, maxWidth: 480, width: '100%', boxShadow: '0 20px 50px rgba(11, 23, 51,0.2)' }} onClick={e => e.stopPropagation()}>
+      <div style={{ position: 'fixed', inset: 0, background: 'rgba(14, 39, 80, 0.4)', zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: SPACING.md }} onClick={() => setShowHelp(false)}>
+        <div style={{ background: COLORS.bg, borderRadius: RADIUS.md, padding: SPACING.xl, maxWidth: 480, width: '100%', boxShadow: '0 20px 50px rgba(14, 39, 80,0.2)' }} onClick={e => e.stopPropagation()}>
           <h3 style={{ fontSize: FONT.size.lg, fontWeight: FONT.weight.bold, color: COLORS.accent, margin: 0, marginBottom: SPACING.md }}>사용 안내</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: SPACING.sm, marginBottom: SPACING.lg }}>
             <div style={{ display: 'flex', gap: SPACING.sm, fontSize: FONT.size.sm, color: COLORS.accent, lineHeight: FONT.lineHeight.relaxed }}>
@@ -846,6 +846,7 @@ const CompetencyWorkbook = () => {
     
     // 추가 서비스 (별도 섹션)
     const extraServices = [
+      { label: 'CareerEngineer 전자책 / 멘토링', url: 'https://www.latpeed.com/spaces/0/stores/collections/68459e30db90f1ebed56226f' },
       { label: 'CareerEngineer 1-Hour 1:1 취업컨설팅', url: 'https://www.latpeed.com/products/S92cP' },
       { label: 'CareerEngineer 카카오톡 상담', url: 'https://open.kakao.com/me/careerengineer' },
     ];
@@ -1066,7 +1067,7 @@ const CompetencyWorkbook = () => {
     <style>{`
       .ce-input:focus, .ce-textarea:focus {
         border-color: ${COLORS.accent2} !important;
-        box-shadow: 0 0 0 3px rgba(182, 117, 74, 0.12) !important;
+        box-shadow: 0 0 0 3px rgba(201, 168, 106, 0.12) !important;
       }
       .ce-save-btn:hover { opacity: 0.88; }
     `}</style>
@@ -1104,6 +1105,27 @@ const CompetencyWorkbook = () => {
       <FocusStyles />
       <FirstVisitModal />
       <div style={S.container}>
+        <div style={S.headerSticky}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: SPACING.base, flexWrap: 'wrap' }}>
+            <CELockupA height={32} />
+            <div style={{ position: 'relative', flex: 1, display: 'flex', justifyContent: 'center' }}>
+              <button onClick={() => setShowStepNav(v => !v)} style={{ 
+                background: COLORS.bgAlt, border: 'none', cursor: 'pointer',
+                fontSize: FONT.size.sm, color: COLORS.accent, textAlign: 'center',
+                padding: '4px 12px', borderRadius: 4, fontFamily: FONT.family,
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 4,
+              }} title="전체 7단계 보기" className="ce-step-nav-trigger">
+                STEP 4 · 직무역량 작성
+                <span style={{ fontSize: FONT.size.xs, color: COLORS.accent, opacity: 1, transform: showStepNav ? 'rotate(180deg)' : 'none', transition: 'transform 150ms' }}>▾</span>
+              </button>
+              <StepNavigatorDropdown open={showStepNav} onClose={() => setShowStepNav(false)} currentKey="jobcompetency" />
+            </div>
+            <button disabled className="ce-save-btn" style={{...S.btnSaveHeader, opacity: 0.4, cursor: 'not-allowed'}} title="작성을 시작하면 활성화됩니다">
+              저장(.doc)
+            </button>
+          </div>
+        </div>
+
         <div style={S.cardLarge}>
           {/* ═══ 브랜드 블록 (7-6-1 규격) ═══ */}
           <div style={{ textAlign: 'center', marginBottom: SPACING.xl, paddingTop: SPACING.md }}>
@@ -1188,6 +1210,27 @@ const CompetencyWorkbook = () => {
     <div style={S.page}>
       <FocusStyles />
       <div style={S.container}>
+        <div style={S.headerSticky}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: SPACING.base, flexWrap: 'wrap' }}>
+            <CELockupA height={32} />
+            <div style={{ position: 'relative', flex: 1, display: 'flex', justifyContent: 'center' }}>
+              <button onClick={() => setShowStepNav(v => !v)} style={{ 
+                background: COLORS.bgAlt, border: 'none', cursor: 'pointer',
+                fontSize: FONT.size.sm, color: COLORS.accent, textAlign: 'center',
+                padding: '4px 12px', borderRadius: 4, fontFamily: FONT.family,
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 4,
+              }} title="전체 7단계 보기" className="ce-step-nav-trigger">
+                STEP 4 · 직무역량 작성
+                <span style={{ fontSize: FONT.size.xs, color: COLORS.accent, opacity: 1, transform: showStepNav ? 'rotate(180deg)' : 'none', transition: 'transform 150ms' }}>▾</span>
+              </button>
+              <StepNavigatorDropdown open={showStepNav} onClose={() => setShowStepNav(false)} currentKey="jobcompetency" />
+            </div>
+            <button onClick={savePartial} className="ce-save-btn" style={S.btnSaveHeader} title="지금까지 작성한 내용을 Word로 저장">
+              저장(.doc)
+            </button>
+          </div>
+        </div>
+
         <div style={S.cardLarge}>
           <p style={S.brandEyebrow}>CAREERENGINEER · 자소서 워크북 · 2라운드 진입</p>
           <h2 style={{ ...S.h2, textAlign: 'center', marginBottom: SPACING.sm }}>1라운드 완료</h2>
@@ -1228,7 +1271,7 @@ const CompetencyWorkbook = () => {
           </div>
         </div>
 
-        <p style={{ ...S.copyrightText, marginTop: SPACING.lg }}>© 2026 CareerEngineer All Rights Reserved.</p>
+        <p style={{ ...S.copyrightText, marginTop: SPACING.lg }}>© 2026 CareerEngineer. All Rights Reserved.</p>
       <StickyFooter />
       </div>
     </div>
@@ -1239,6 +1282,27 @@ const CompetencyWorkbook = () => {
     <div style={S.page}>
       <FocusStyles />
       <div style={S.container}>
+        <div style={S.headerSticky}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: SPACING.base, flexWrap: 'wrap' }}>
+            <CELockupA height={32} />
+            <div style={{ position: 'relative', flex: 1, display: 'flex', justifyContent: 'center' }}>
+              <button onClick={() => setShowStepNav(v => !v)} style={{ 
+                background: COLORS.bgAlt, border: 'none', cursor: 'pointer',
+                fontSize: FONT.size.sm, color: COLORS.accent, textAlign: 'center',
+                padding: '4px 12px', borderRadius: 4, fontFamily: FONT.family,
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 4,
+              }} title="전체 7단계 보기" className="ce-step-nav-trigger">
+                STEP 4 · 직무역량 작성
+                <span style={{ fontSize: FONT.size.xs, color: COLORS.accent, opacity: 1, transform: showStepNav ? 'rotate(180deg)' : 'none', transition: 'transform 150ms' }}>▾</span>
+              </button>
+              <StepNavigatorDropdown open={showStepNav} onClose={() => setShowStepNav(false)} currentKey="jobcompetency" />
+            </div>
+            <button onClick={savePartial} className="ce-save-btn" style={S.btnSaveHeader} title="지금까지 작성한 내용을 Word로 저장">
+              저장(.doc)
+            </button>
+          </div>
+        </div>
+
         <div style={S.cardLarge}>
           <div style={{ textAlign: 'center', marginBottom: SPACING.xl }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 64, height: 64, background: COLORS.greenBg, borderRadius: RADIUS.pill, marginBottom: SPACING.base }}>
@@ -1397,7 +1461,7 @@ const CompetencyWorkbook = () => {
         </div>
 
         <div style={S.copyrightWrap}>
-          <p style={S.copyrightText}>© 2026 CareerEngineer All Rights Reserved.</p>
+          <p style={S.copyrightText}>© 2026 CareerEngineer. All Rights Reserved.</p>
           <p style={S.copyrightWarn}>이 워크북은 저작권법에 의해 보호받는 저작물입니다. 무단 복제·배포·수정을 금지하며, 위반 시 법적 책임을 질 수 있습니다.</p>
         </div>
       <StickyFooter />
@@ -1469,7 +1533,7 @@ const CompetencyWorkbook = () => {
               const isPast = phaseOrder[currentPhase] > phaseOrder[phase];
               return (
                 <button key={phase} onClick={() => {
-                  if (phase === 'round2' && selectedSteps.length === 0) {
+                  if (phase === 'round2') {
                     setCurrentPhase('evaluation');
                   } else {
                     setCurrentPhase(phase);
