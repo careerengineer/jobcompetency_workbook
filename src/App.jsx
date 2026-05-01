@@ -29,8 +29,7 @@ const RADIUS = { sm: 6, base: 10, md: 14, lg: 20, pill: 999 };
 // ════════════════════════════════════════════════════════════════
 //  CareerEngineer 워크북 라이브러리 (URL은 나중에 일괄 적용)
 // ════════════════════════════════════════════════════════════════
-const WORKBOOK_LINKS = {
-  roadmap:            { label: 'STEP 0 · 취업준비 진단', url: 'https://www.latpeed.com/products/nDbq9' },
+const WORKBOOK_LINKS = { career_roadmap: { label: 'STEP 0 · 취업준비 진단', url: 'https://www.latpeed.com/products/nDbq9' },
   job_analysis:       { label: 'STEP 1 · 채용공고 및 직무 분석', url: 'https://www.latpeed.com/products/-3Wgm' },
   experience:         { label: 'STEP 2 · 경험 정리', url: 'https://www.latpeed.com/products/wDSaj' },
   motivation:         { label: 'STEP 4 · 지원동기 작성', url: 'https://www.latpeed.com/products/dfdMW' },
@@ -153,7 +152,7 @@ const CompetencyWorkbook = () => {
             ifStillDifficult: '"이 역량이 없었다면 그 업무의 어느 단계에서 막혔을까?"라고 스스로 질문해보세요.'
           },
           placeholder: '예: 가장 핵심은 콘텐츠 기획력입니다. 트렌드를 읽고 타겟의 언어로 변환하는 능력이 없으면 아무리 디자인이 좋아도 반응이 없습니다. 포토샵 스킬보다 "무엇을 왜 만드는가"를 아는 것이 더 중요합니다.',
-          rows: 4, relatedWorkbooks: ['roadmap', 'job_analysis']
+          rows: 4, relatedWorkbooks: ['career_roadmap', 'job_analysis']
         },
         {
           id: 'q1_3',
@@ -196,7 +195,7 @@ const CompetencyWorkbook = () => {
             ifStillDifficult: '처음 이 역량을 배우거나 익히기 시작했을 때로 돌아가세요. 무엇이 시작의 계기였나요?'
           },
           placeholder: '예: 대학교 2학년 때 동아리 홍보를 맡았는데, 열심히 만든 포스터가 아무 반응이 없었습니다. 옆 동아리 포스터는 같은 내용인데 "공유하고 싶다"는 말이 나왔고, 그때 "무엇을 왜 만드는가"를 모르면 아무리 잘 만들어도 의미 없다는 것을 깨달았습니다.',
-          rows: 4, relatedWorkbooks: ['roadmap', 'experience']
+          rows: 4, relatedWorkbooks: ['career_roadmap', 'experience']
         },
         {
           id: 'q2_2',
@@ -397,7 +396,7 @@ const CompetencyWorkbook = () => {
           ifStillDifficult: '"이 역량이 이 직무에서 유독 중요한 상황"을 하나 구체적으로 떠올려보세요.'
         },
         placeholder: '예: 기획 직무는 전략 설계, 영업은 관계 형성이 핵심이지만 마케팅은 타겟 언어 변환이 핵심입니다. 같은 아이디어라도 누가 어떤 언어로 전달하느냐에 따라 반응이 달라지는 직무이기 때문입니다.',
-        rows: 4, relatedWorkbooks: ['roadmap', 'job_analysis']
+        rows: 4, relatedWorkbooks: ['career_roadmap', 'job_analysis']
       },
       {
         id: 'q2d_1_3',
@@ -583,7 +582,7 @@ const CompetencyWorkbook = () => {
           ifStillDifficult: '최소한 "이 회사에서 이 역량이 특히 필요한 이유" 하나만 찾아도 충분합니다.'
         },
         placeholder: '예: 다른 대형 마케팅 대행사에서는 이 역량이 여러 팀 중 하나의 부분이 됩니다. 하지만 귀사처럼 내부 팀이 직접 전략부터 실행까지 담당하는 구조에서는 이 역량이 더 핵심적으로 작동합니다. 이것이 귀사를 선택한 직접적인 이유입니다.',
-        rows: 4, relatedWorkbooks: ['roadmap', 'job_analysis']
+        rows: 4, relatedWorkbooks: ['career_roadmap', 'job_analysis']
       }
     ]
   };
@@ -820,7 +819,7 @@ const CompetencyWorkbook = () => {
     
     // 7단계 구조 - 자소서 5대 항목만 하위 항목 펼침, 나머지는 단일 링크
     const stepGroups = [
-      { step: '0', label: '취업준비 진단', key: 'roadmap' },
+      { step: '0', label: '취업준비 진단', key: 'career_roadmap' },
       { step: '1', label: '채용공고 및 직무 분석', key: 'job_analysis' },
       { step: '2', label: '경험 정리', key: 'experience' },
       { step: '3', inline: true, label: '', items: [
@@ -1243,7 +1242,7 @@ const CompetencyWorkbook = () => {
                       <h3 style={{ fontSize: FONT.size.md, fontWeight: FONT.weight.bold, color: COLORS.accent, margin: 0, marginBottom: 4 }}>{step.title}</h3>
                       <p style={{ fontSize: FONT.size.sm, color: COLORS.sub, margin: 0, marginBottom: SPACING.sm }}>{step.subtitle}</p>
                       <div style={{ background: COLORS.bgAlt, borderRadius: RADIUS.sm, padding: SPACING.sm, fontSize: FONT.size.sm, color: COLORS.accent, lineHeight: FONT.lineHeight.base }}>
-                        <strong>내 답변:</strong> {(step.questions && step.questions[0] && answers[step.questions[0].id]?.substring(0, 100)) || '(답변 없음)'}
+                        <strong>내 답변:</strong> {step.questions && step.questions[0] && answers[step.questions[0].id]?.substring(0, 100) || '(답변 없음)'}
                         {step.questions && step.questions[0] && answers[step.questions[0].id]?.length > 100 && '...'}
                       </div>
                     </div>
