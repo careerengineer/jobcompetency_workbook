@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/jobcompetency_workbook/static/css/main.47620019.css",
-    "main.js": "/jobcompetency_workbook/static/js/main.f6eba9d6.js",
-    "static/js/453.90cf4265.chunk.js": "/jobcompetency_workbook/static/js/453.90cf4265.chunk.js",
-    "index.html": "/jobcompetency_workbook/index.html",
-    "main.47620019.css.map": "/jobcompetency_workbook/static/css/main.47620019.css.map",
-    "main.f6eba9d6.js.map": "/jobcompetency_workbook/static/js/main.f6eba9d6.js.map",
-    "453.90cf4265.chunk.js.map": "/jobcompetency_workbook/static/js/453.90cf4265.chunk.js.map"
+    "main.css": "/static/css/main.47620019.css",
+    "main.js": "/static/js/main.5c95ea16.js",
+    "static/js/453.90cf4265.chunk.js": "/static/js/453.90cf4265.chunk.js",
+    "index.html": "/index.html",
+    "main.47620019.css.map": "/static/css/main.47620019.css.map",
+    "main.5c95ea16.js.map": "/static/js/main.5c95ea16.js.map",
+    "453.90cf4265.chunk.js.map": "/static/js/453.90cf4265.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.47620019.css",
-    "static/js/main.f6eba9d6.js"
+    "static/js/main.5c95ea16.js"
   ]
 }
