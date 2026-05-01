@@ -365,7 +365,7 @@ const CompetencyWorkbook = () => {
       {
         id: 'q2d_1_1',
         label: 'Q1 심화-1. 이 직무가 요구하는 역량을 어떻게 리서치로 확인했나요?',
-        hint: '현직자·채용공고·시니어 JD 비교 — "중요한 것 같아서"가 아닌 근거',
+        hint: '현직자·채용공고·시니어 직무상세내용 비교 — "중요한 것 같아서"가 아닌 근거',
         guide: {
           description: '이 직무에서 "실제로 중요한 역량"은 채용공고에 다 나와 있지 않습니다. 현직자 인터뷰나 시니어 채용공고를 봐야 진짜 핵심이 보입니다.',
           diagnosis: '즉석자가진단: "어떻게 그 역량이 이 직무에서 중요하다고 알게 됐나요?"라고 물으면 리서치 결과로 즉답 가능한가?',
@@ -1174,7 +1174,7 @@ const CompetencyWorkbook = () => {
           <RelatedWorkbookList
             title="선행 학습 권장 — 작성 전에 보면 좋은 워크북"
             items={[
-              { id: 'job_analysis', hint: 'JD에서 어떤 역량을 요구하는지 추출' },
+              { id: 'job_analysis', hint: '직무상세내용에서 어떤 역량을 요구하는지 추출' },
               { id: 'experience', hint: '역량의 증거가 될 경험 인벤토리' }
             ]}
           />
@@ -1417,7 +1417,7 @@ const CompetencyWorkbook = () => {
 
           <RelatedWorkbookList
             items={[
-              { id: 'job_analysis', hint: 'JD 키워드 (어떤 역량을 강조할지)' },
+              { id: 'job_analysis', hint: '직무상세내용 키워드 (어떤 역량을 강조할지)' },
               { id: 'experience', hint: '역량의 증거가 되는 경험' },
               { id: 'resume', hint: '이력서 핵심 성과와 톤 일치' },
               { id: 'motivation', hint: '지원동기와 함께 5대항목 통합' },
