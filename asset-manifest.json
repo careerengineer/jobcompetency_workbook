@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/jobcompetency_workbook/static/css/main.47620019.css",
+    "main.js": "/jobcompetency_workbook/static/js/main.a8c65555.js",
+    "static/js/453.90cf4265.chunk.js": "/jobcompetency_workbook/static/js/453.90cf4265.chunk.js",
+    "index.html": "/jobcompetency_workbook/index.html",
+    "main.47620019.css.map": "/jobcompetency_workbook/static/css/main.47620019.css.map",
+    "main.a8c65555.js.map": "/jobcompetency_workbook/static/js/main.a8c65555.js.map",
+    "453.90cf4265.chunk.js.map": "/jobcompetency_workbook/static/js/453.90cf4265.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.47620019.css",
+    "static/js/main.a8c65555.js"
+  ]
+}
